@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Store, ShoppingCart, CreditCard, TrendingUp, Users, Package, Search, Plus, MoreHorizontal, MousePointer2 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -170,8 +170,8 @@ const InventoryView = () => (
                             <td className="p-4">{item.stock}</td>
                             <td className="p-4">
                                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${item.status === 'In Stock' ? 'bg-green-500/10 text-green-500' :
-                                        item.status === 'Low Stock' ? 'bg-yellow-500/10 text-yellow-500' :
-                                            'bg-red-500/10 text-red-500'
+                                    item.status === 'Low Stock' ? 'bg-yellow-500/10 text-yellow-500' :
+                                        'bg-red-500/10 text-red-500'
                                     }`}>
                                     {item.status}
                                 </span>
@@ -370,4 +370,4 @@ const DashboardPreview = () => {
     );
 };
 
-export default DashboardPreview;
+export default memo(DashboardPreview);

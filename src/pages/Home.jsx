@@ -26,9 +26,9 @@ const Home = () => {
             />
             {/* Background Atmosphere - Global Page Bleed */}
             <div className="absolute inset-0 overflow-visible pointer-events-none -z-10">
-                <motion.div style={{ y: y1 }} className="absolute top-[5%] left-[-15%] w-[1200px] h-[1200px] bg-amber-600/[0.04] rounded-full blur-[180px] mix-blend-screen"></motion.div>
-                <motion.div style={{ y: y2 }} className="absolute top-[-5%] right-[-10%] w-[1000px] h-[1000px] bg-red-900/[0.03] rounded-full blur-[200px] mix-blend-screen"></motion.div>
-                <motion.div style={{ y: y3 }} className="absolute bottom-[20%] left-[20%] w-[1500px] h-[800px] bg-orange-900/[0.01] rounded-full blur-[220px]"></motion.div>
+                <motion.div style={{ y: y1, willChange: 'transform' }} className="absolute top-[5%] left-[-15%] w-[1200px] h-[1200px] bg-amber-600/[0.04] rounded-full blur-[180px]"></motion.div>
+                <motion.div style={{ y: y2, willChange: 'transform' }} className="absolute top-[-5%] right-[-10%] w-[1000px] h-[1000px] bg-red-900/[0.03] rounded-full blur-[200px]"></motion.div>
+                <motion.div style={{ y: y3, willChange: 'transform' }} className="absolute bottom-[20%] left-[20%] w-[1500px] h-[800px] bg-orange-900/[0.01] rounded-full blur-[220px]"></motion.div>
             </div>
 
             {/* Hero Section - Padding to clear fixed header */}
@@ -101,7 +101,7 @@ const Home = () => {
                     </div>
 
                     {/* Main Container - Redesigned to match image */}
-                    <div className="bg-[#0c0e12]/60 border-x border-b border-white/10 rounded-b-2xl p-8 md:p-20 relative overflow-hidden backdrop-blur-xl">
+                    <div className="bg-[#0c0e12]/60 border-x border-b border-white/10 rounded-b-2xl p-8 md:p-20 relative overflow-hidden backdrop-blur-sm">
                         <div className="relative z-10 space-y-48">
 
                             {/* Section 1: POS / Terminal Control */}
@@ -708,31 +708,27 @@ const Home = () => {
                                 style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(255,255,220,0.95) 0%, rgba(255,210,60,0.5) 50%, transparent 100%)' }} />
 
                             {[
-                                { left: '5%', w: '13%', delay: 0, dur: 2.0 },
-                                { left: '17%', w: '17%', delay: 0.5, dur: 1.7 },
-                                { left: '32%', w: '19%', delay: 0.2, dur: 2.3 },
-                                { left: '49%', w: '15%', delay: 0.8, dur: 1.9 },
-                                { left: '62%', w: '18%', delay: 0.1, dur: 2.1 },
-                                { left: '77%', w: '14%', delay: 0.6, dur: 1.8 },
-                                { left: '88%', w: '11%', delay: 0.3, dur: 2.4 },
+                                { left: '5%', w: '15%', delay: 0, dur: 2.0 },
+                                { left: '24%', w: '19%', delay: 0.4, dur: 1.8 },
+                                { left: '45%', w: '18%', delay: 0.2, dur: 2.3 },
+                                { left: '64%', w: '17%', delay: 0.7, dur: 1.9 },
+                                { left: '82%', w: '14%', delay: 0.1, dur: 2.2 },
                             ].map((f, i) => (
                                 <motion.div key={i} className="absolute bottom-0 rounded-t-full"
-                                    style={{ left: f.left, width: f.w, background: `linear-gradient(to top, rgba(255,${120 + i * 18},0,0.95), rgba(255,80,0,0.4), transparent)`, transformOrigin: 'bottom center' }}
+                                    style={{ left: f.left, width: f.w, background: `linear-gradient(to top, rgba(255,${120 + i * 25},0,0.95), rgba(255,80,0,0.4), transparent)`, transformOrigin: 'bottom center', willChange: 'transform' }}
                                     animate={{ height: ['28%', '52%', '33%', '58%', '30%'], scaleX: [1, 0.82, 1.12, 0.88, 1], x: [0, (i % 2 === 0 ? 6 : -6), 0, (i % 2 === 0 ? -4 : 4), 0] }}
                                     transition={{ duration: f.dur, delay: f.delay, repeat: Infinity, ease: 'easeInOut' }}
                                 />
                             ))}
 
                             {[
-                                { left: '10%', delay: 0, dur: 2.8 },
-                                { left: '27%', delay: 0.7, dur: 3.2 },
-                                { left: '44%', delay: 0.2, dur: 2.5 },
-                                { left: '58%', delay: 1.1, dur: 3.6 },
-                                { left: '73%', delay: 0.4, dur: 2.9 },
-                                { left: '87%', delay: 0.9, dur: 3.1 },
+                                { left: '15%', delay: 0, dur: 2.8 },
+                                { left: '38%', delay: 0.6, dur: 3.2 },
+                                { left: '60%', delay: 0.2, dur: 2.5 },
+                                { left: '82%', delay: 1.0, dur: 3.0 },
                             ].map((e, i) => (
                                 <motion.div key={i} className="absolute w-2 h-2 rounded-full"
-                                    style={{ left: e.left, bottom: '28%', background: 'rgba(255,170,40,0.95)', boxShadow: '0 0 8px rgba(255,140,0,0.9)' }}
+                                    style={{ left: e.left, bottom: '28%', background: 'rgba(255,170,40,0.95)', boxShadow: '0 0 8px rgba(255,140,0,0.9)', willChange: 'transform, opacity' }}
                                     animate={{ y: [0, -320], x: [0, (i % 2 === 0 ? 30 : -30)], opacity: [1, 0.9, 0], scale: [1, 0.6, 0] }}
                                     transition={{ duration: e.dur, delay: e.delay, repeat: Infinity, ease: 'easeOut' }}
                                 />
