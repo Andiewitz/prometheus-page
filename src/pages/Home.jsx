@@ -32,36 +32,40 @@ const Home = () => {
             </div>
 
             {/* Hero Section - Padding to clear fixed header */}
-            <section className="container mx-auto px-4 text-center relative z-10 pt-48 pb-32">
+            <section className="container mx-auto px-4 text-center relative z-10 pt-28 pb-12 md:pt-48 md:pb-32">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
                 >
-                    <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight text-white mb-6 leading-tight max-w-4xl mx-auto">
-                        The Operating System <br />
+                    <h1 className="font-serif text-4xl md:text-7xl font-medium tracking-tight text-white mb-6 leading-tight max-w-4xl mx-auto">
+                        The Operating System{' '}
+                        <span className="hidden md:inline"><br /></span>
                         for Modern Business.
                     </h1>
-                    <p className="text-base md:text-lg text-gray-500 mb-10 max-w-lg mx-auto leading-relaxed">
-                        Consolidate your Point of Sale, inventory, and analytics into one reliable platform. <br />
+                    <p className="text-sm md:text-lg text-gray-500 mb-10 max-w-lg mx-auto leading-relaxed px-2">
+                        Consolidate your Point of Sale, inventory, and analytics into one reliable platform.{' '}
                         Built to handle <span className="text-white">high-volume retail</span> operations.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24">
-                        <Button size="sm" className="px-8 h-12 shadow-[0_0_20px_rgba(245,158,11,0.1)]">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 md:mb-24">
+                        <Button size="sm" className="w-full sm:w-auto px-8 h-12 shadow-[0_0_20px_rgba(245,158,11,0.1)]">
                             Explore Products <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
-                        <Button variant="secondary" size="sm" className="px-8 h-12">
+                        <Button variant="secondary" size="sm" className="w-full sm:w-auto px-8 h-12">
                             View Pricing
                         </Button>
                     </div>
                 </motion.div>
 
-                <DashboardPreview />
+                {/* DashboardPreview — hidden on mobile, shown on md+ */}
+                <div className="hidden md:block">
+                    <DashboardPreview />
+                </div>
             </section>
 
             {/* THE "WHY" SECTION: REDESIGNED WITH SPARK BACKGROUND */}
-            <section className="relative min-h-screen pt-24">
+            <section className="relative min-h-screen pt-12 md:pt-24">
                 {/* Background Transition Overlay */}
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     {/* The Grid Background with a smooth top mask */}
@@ -82,27 +86,27 @@ const Home = () => {
 
                 <div className="container mx-auto px-4 max-w-6xl relative z-10">
                     {/* Logo Bar - Technical Aesthetic */}
-                    <div className="flex items-center justify-between px-8 py-6 bg-white/[0.02] border border-white/10 rounded-t-2xl backdrop-blur-sm">
-                        <div className="flex-1 flex justify-center border-r border-white/5 opacity-50">
-                            <span className="font-bold text-lg tracking-tighter">hud</span>
+                    <div className="flex items-center justify-between px-4 md:px-8 py-4 md:py-6 bg-white/[0.02] border border-white/10 rounded-t-2xl backdrop-blur-sm overflow-x-auto gap-2">
+                        <div className="flex-1 flex justify-center border-r border-white/5 opacity-50 min-w-[60px]">
+                            <span className="font-bold text-sm md:text-lg tracking-tighter whitespace-nowrap">hud</span>
                         </div>
-                        <div className="flex-1 flex justify-center border-r border-white/5 opacity-50">
-                            <span className="font-bold text-lg tracking-tighter">BILT</span>
+                        <div className="flex-1 flex justify-center border-r border-white/5 opacity-50 min-w-[60px]">
+                            <span className="font-bold text-sm md:text-lg tracking-tighter whitespace-nowrap">BILT</span>
                         </div>
-                        <div className="flex-1 flex justify-center border-r border-white/5 opacity-50 uppercase text-xs font-bold tracking-widest">
+                        <div className="hidden sm:flex flex-1 justify-center border-r border-white/5 opacity-50 uppercase text-xs font-bold tracking-widest min-w-[80px]">
                             mgm resorts
                         </div>
-                        <div className="flex-1 flex justify-center border-r border-white/5 opacity-50 italic font-bold">
+                        <div className="hidden sm:flex flex-1 justify-center border-r border-white/5 opacity-50 italic font-bold min-w-[80px]">
                             Switzerland
                         </div>
-                        <div className="flex-1 flex justify-center opacity-50 uppercase text-xs font-bold tracking-widest">
+                        <div className="flex-1 flex justify-center opacity-50 uppercase text-xs font-bold tracking-widest min-w-[60px]">
                             numeral
                         </div>
                     </div>
 
                     {/* Main Container - Redesigned to match image */}
-                    <div className="bg-[#0c0e12]/60 border-x border-b border-white/10 rounded-b-2xl p-8 md:p-20 relative overflow-hidden backdrop-blur-sm">
-                        <div className="relative z-10 space-y-48">
+                    <div className="bg-[#0c0e12]/60 border-x border-b border-white/10 rounded-b-2xl p-6 md:p-20 relative overflow-hidden backdrop-blur-sm">
+                        <div className="relative z-10 space-y-20 md:space-y-48">
 
                             {/* Section 1: POS / Terminal Control */}
                             <motion.div
@@ -134,7 +138,7 @@ const Home = () => {
                                     <div className="inline-block px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-[10px] font-mono text-primary uppercase tracking-[0.2em]">
                                         Legacy Replacement
                                     </div>
-                                    <h3 className="text-4xl md:text-5xl font-serif font-medium text-white leading-tight">
+                                    <h3 className="text-3xl md:text-5xl font-serif font-medium text-white leading-tight">
                                         Retire your janky <br />
                                         legacy systems.
                                     </h3>
@@ -171,7 +175,7 @@ const Home = () => {
                                 </div>
 
                                 {/* Visual Mockup Placeholder - Virtual POS Terminal */}
-                                <div className="lg:col-span-6 relative flex items-center justify-center p-8 bg-white/[0.02] border border-white/5 rounded-3xl h-[400px] overflow-hidden group">
+                                <div className="lg:col-span-6 relative flex items-center justify-center p-4 md:p-8 bg-white/[0.02] border border-white/5 rounded-3xl h-[240px] md:h-[400px] overflow-hidden group">
                                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.05)_0%,transparent_70%)]" />
 
                                     {/* Virtual POS Terminal Interface */}
@@ -273,7 +277,7 @@ const Home = () => {
                                     <div className="inline-block px-3 py-1 rounded-full border border-orange-500/20 bg-orange-500/5 text-[10px] font-mono text-orange-500 uppercase tracking-[0.2em]">
                                         Unified Suite
                                     </div>
-                                    <h3 className="text-4xl md:text-5xl font-serif font-medium text-white leading-tight">
+                                    <h3 className="text-3xl md:text-5xl font-serif font-medium text-white leading-tight">
                                         One unified suite, <br />
                                         zero silos.
                                     </h3>
@@ -310,7 +314,7 @@ const Home = () => {
                                 </div>
 
                                 {/* Visual Mockup Placeholder - Virtual Suite/Asset Tracker */}
-                                <div className="lg:col-span-6 relative flex items-center justify-center p-8 bg-white/[0.02] border border-white/5 rounded-3xl h-[400px] overflow-hidden group">
+                                <div className="lg:col-span-6 relative flex items-center justify-center p-4 md:p-8 bg-white/[0.02] border border-white/5 rounded-3xl h-[240px] md:h-[400px] overflow-hidden group">
                                     <div className="absolute inset-0 bg-[#050607]/40"
                                         style={{
                                             backgroundImage: `radial-gradient(rgba(245,158,11,0.1) 1px, transparent 0)`,
@@ -393,7 +397,7 @@ const Home = () => {
                                     <div className="inline-block px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 text-[10px] font-mono text-blue-500 uppercase tracking-[0.2em]">
                                         Reporting & Analytics
                                     </div>
-                                    <h3 className="text-4xl md:text-5xl font-serif font-medium text-white leading-tight">
+                                    <h3 className="text-3xl md:text-5xl font-serif font-medium text-white leading-tight">
                                         Business Intelligence. <br />
                                         Not just dashboards.
                                     </h3>
@@ -430,7 +434,7 @@ const Home = () => {
                                 </div>
 
                                 {/* Visual Mockup Placeholder - Virtual Analytics Dashboard */}
-                                <div className="lg:col-span-6 relative bg-white/[0.02] border border-white/5 rounded-3xl p-8 overflow-hidden min-h-[400px] flex items-center justify-center group">
+                                <div className="lg:col-span-6 relative bg-white/[0.02] border border-white/5 rounded-3xl p-4 md:p-8 overflow-hidden min-h-[240px] md:min-h-[400px] flex items-center justify-center group">
                                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.1)_0%,transparent_70%)]" />
 
                                     {/* Virtual Analytics Interface */}
@@ -512,7 +516,7 @@ const Home = () => {
                                     <div className="inline-block px-3 py-1 rounded-full border border-green-500/20 bg-green-500/5 text-[10px] font-mono text-green-500 uppercase tracking-[0.2em]">
                                         Built For You
                                     </div>
-                                    <h3 className="text-4xl md:text-5xl font-serif font-medium text-white leading-tight">
+                                    <h3 className="text-3xl md:text-5xl font-serif font-medium text-white leading-tight">
                                         One platform. <br />
                                         Every business.
                                     </h3>
@@ -546,7 +550,7 @@ const Home = () => {
                                 </div>
 
                                 {/* Visual Mockup — Business Type Selector */}
-                                <div className="lg:col-span-6 relative flex items-center justify-center p-8 bg-white/[0.02] border border-white/5 rounded-3xl h-[400px] overflow-hidden group">
+                                <div className="lg:col-span-6 relative flex items-center justify-center p-4 md:p-8 bg-white/[0.02] border border-white/5 rounded-3xl h-[240px] md:h-[400px] overflow-hidden group">
                                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.05)_0%,transparent_70%)]" />
 
                                     <div className="relative z-10 w-full max-w-sm space-y-3">
@@ -581,7 +585,7 @@ const Home = () => {
             </section>
 
             {/* FINAL CTA — THE FORGE */}
-            <section className="relative overflow-hidden" style={{ height: '760px' }}>
+            <section className="relative overflow-hidden" style={{ height: 'clamp(520px, 80vh, 760px)' }}>
                 {/* Extended Top Glow - Seamlessly blends the gap */}
                 <div className="absolute top-0 left-0 right-0 h-[500px] z-0 pointer-events-none flex justify-center overflow-hidden">
                     <div className="w-[120%] h-full bg-[radial-gradient(ellipse_at_bottom,rgba(245,100,0,0.15),transparent_70%)] blur-3xl opacity-80" />
