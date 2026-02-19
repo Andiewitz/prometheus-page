@@ -323,7 +323,7 @@ const DashboardPreview = () => {
 
                     <div className="flex gap-2 bg-[#08090a] p-1 rounded-lg border border-white/5">
                         {[
-                            { id: 'pos', icon: Store, label: 'Prometheus POS' },
+                            { id: 'pos', icon: Store, label: 'Hefestus POS' },
                             { id: 'inventory', icon: Package, label: 'Inventory Manager' },
                             { id: 'analytics', icon: TrendingUp, label: 'Live Analytics' }
                         ].map(tab => (

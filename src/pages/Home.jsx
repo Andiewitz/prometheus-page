@@ -59,8 +59,8 @@ const Home = () => {
 
             {/* THE "WHY" SECTION: REDESIGNED WITH SPARK BACKGROUND */}
             <section className="relative min-h-screen pt-12 md:pt-24">
-                {/* Background Transition Overlay */}
-                <div className="absolute inset-0 z-0 pointer-events-none">
+                {/* Background Transition Overlay & Lava Flow */}
+                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                     {/* The Grid Background with a smooth top mask */}
                     <div className="absolute inset-0 bg-[#050607]"
                         style={{
@@ -69,6 +69,39 @@ const Home = () => {
                             maskImage: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent)',
                             WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 5%, black 95%, transparent)'
                         }}>
+                    </div>
+
+                    {/* Performance-Focused Lava Flow Effect */}
+                    <div className="absolute inset-0 opacity-20 transition-opacity duration-1000">
+                        {[
+                            { left: '10%', top: '20%', size: '600px', color: 'rgba(255, 69, 0, 0.15)', dur: 25 },
+                            { left: '60%', top: '10%', size: '800px', color: 'rgba(255, 140, 0, 0.1)', dur: 35 },
+                            { left: '30%', top: '50%', size: '700px', color: 'rgba(255, 100, 0, 0.12)', dur: 30 },
+                            { left: '70%', top: '60%', size: '600px', color: 'rgba(220, 20, 60, 0.08)', dur: 40 }
+                        ].map((lava, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute rounded-full blur-[100px]"
+                                style={{
+                                    left: lava.left,
+                                    top: lava.top,
+                                    width: lava.size,
+                                    height: lava.size,
+                                    background: `radial-gradient(circle, ${lava.color} 0%, transparent 70%)`,
+                                    willChange: 'transform'
+                                }}
+                                animate={{
+                                    x: [0, 100, -50, 0],
+                                    y: [0, -50, 80, 0],
+                                    scale: [1, 1.1, 0.9, 1]
+                                }}
+                                transition={{
+                                    duration: lava.dur,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                            />
+                        ))}
                     </div>
                 </div>
 
@@ -112,7 +145,7 @@ const Home = () => {
                                         legacy systems.
                                     </h3>
                                     <p className="text-base text-gray-400 leading-relaxed font-medium">
-                                        Fragmented software and outdated hardware are holding you back. Prometheus replaces your disconnected legacy tools with a single, high-performance business suite.
+                                        Fragmented software and outdated hardware are holding you back. Hefestus replaces your disconnected legacy tools with a single, high-performance business suite.
                                     </p>
 
                                     <div className="space-y-6 pt-4 border-t border-white/5">
@@ -178,7 +211,7 @@ const Home = () => {
                                         zero silos.
                                     </h3>
                                     <p className="text-base text-gray-400 leading-relaxed font-medium">
-                                        Maintaining separate systems for POS, warehouse, and e-commerce is inefficient. Prometheus consolidates your entire business operations into a single source of truth.
+                                        Maintaining separate systems for POS, warehouse, and e-commerce is inefficient. Hefestus consolidates your entire business operations into a single source of truth.
                                     </p>
 
                                     <div className="space-y-6 pt-4 border-t border-white/5">
@@ -320,7 +353,7 @@ const Home = () => {
                                         Every business.
                                     </h3>
                                     <p className="text-base text-gray-400 leading-relaxed font-medium">
-                                        Whether you run a single café or a multi-location retail chain, Prometheus adapts to how you operate — not the other way around.
+                                        Whether you run a single café or a multi-location retail chain, Hefestus adapts to how you operate — not the other way around.
                                     </p>
 
                                     <div className="space-y-6 pt-4 border-t border-white/5">
