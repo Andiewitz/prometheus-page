@@ -5,7 +5,7 @@ import Button from '../ui/Button';
 
 const Layout = () => {
     return (
-        <div className="min-h-screen font-sans text-gray-100 overflow-hidden selection:bg-[#f59e0b] selection:text-black">
+        <div className="min-h-screen font-sans text-gray-100 selection:bg-[#f59e0b] selection:text-black">
             {/* Navbar */}
             <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-[#08090a]/80 backdrop-blur-md">
                 <div className="container mx-auto flex h-20 items-center justify-between px-6">
@@ -14,7 +14,7 @@ const Layout = () => {
                             <div className="h-9 w-9 bg-white rounded-full flex items-center justify-center text-black shadow-[0_0_15px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all bg-gradient-to-br from-white to-orange-100">
                                 <Flame size={20} className="text-black fill-black" />
                             </div>
-                            Prometheus
+                            Hefestus
                         </Link>
 
                         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-400">
@@ -34,7 +34,7 @@ const Layout = () => {
                 </div>
             </header>
 
-            <main className="relative pt-40 pb-20">
+            <main className="relative">
                 <Outlet />
             </main>
 
@@ -43,7 +43,7 @@ const Layout = () => {
                 <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
                     <div>
                         <div className="flex items-center gap-2 font-bold text-white mb-6">
-                            <Flame size={16} className="text-primary" /> Prometheus
+                            <Flame size={16} className="text-primary" /> Hefestus
                         </div>
                         <p className="text-gray-500 leading-relaxed">
                             The Business Operating System for the modern world.
