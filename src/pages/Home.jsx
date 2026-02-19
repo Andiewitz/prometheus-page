@@ -8,27 +8,20 @@ const Home = () => {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll();
 
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [0, 80]);
-    const y3 = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
     const barOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
 
     return (
         <div ref={containerRef} className="relative">
-            {/* Scroll Progress Bar - Refined for zero-start */}
+            {/* Scroll Progress Bar */}
             <motion.div
                 className="fixed top-0 left-0 right-0 h-[2px] bg-primary z-[100] origin-left"
-                style={{
-                    scaleX: scrollYProgress,
-                    opacity: barOpacity
-                }}
+                style={{ scaleX: scrollYProgress, opacity: barOpacity }}
             />
-            {/* Background Atmosphere - Global Page Bleed */}
-            <div className="absolute inset-0 overflow-visible pointer-events-none -z-10">
-                <motion.div style={{ y: y1, willChange: 'transform' }} className="absolute top-[5%] left-[-15%] w-[1200px] h-[1200px] bg-amber-600/[0.04] rounded-full blur-[180px]"></motion.div>
-                <motion.div style={{ y: y2, willChange: 'transform' }} className="absolute top-[-5%] right-[-10%] w-[1000px] h-[1000px] bg-red-900/[0.03] rounded-full blur-[200px]"></motion.div>
-                <motion.div style={{ y: y3, willChange: 'transform' }} className="absolute bottom-[20%] left-[20%] w-[1500px] h-[800px] bg-orange-900/[0.01] rounded-full blur-[220px]"></motion.div>
+            {/* Background Atmosphere — static, no blur, no per-frame cost */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+                <div className="absolute top-[5%] left-[-10%] w-[700px] h-[700px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(180,90,0,0.07) 0%, transparent 70%)' }} />
+                <div className="absolute top-[-5%] right-[-5%] w-[600px] h-[600px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(120,20,0,0.05) 0%, transparent 70%)' }} />
+                <div className="absolute bottom-[20%] left-[20%] w-[800px] h-[500px] rounded-full" style={{ background: 'radial-gradient(circle, rgba(100,40,0,0.03) 0%, transparent 70%)' }} />
             </div>
 
             {/* Hero Section - Padding to clear fixed header */}
